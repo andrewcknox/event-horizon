@@ -1,0 +1,17 @@
+# Normalise line endings in the repo, and check them out the way each platform
+# actually needs them. The PowerShell and VBScript files are Windows-only and
+# some of them are read by wscript.exe, which is happiest with CRLF; the shell
+# scripts are macOS-only and must never get CRLF or the shebang breaks.
+* text=auto
+
+*.ps1  text eol=crlf
+*.vbs  text eol=crlf
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+*.sh       text eol=lf
+*.command  text eol=lf
+
+*.png  binary
+*.ico  binary
+*.wav  binary

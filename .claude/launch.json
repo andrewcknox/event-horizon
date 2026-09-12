@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "journal",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.cjs"],
+      "url": "http://127.0.0.1:8787",
+      "port": 8787
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+# Your journal. Everything the app writes lives next to the code, and none of it
+# belongs in the repo: this is a personal-data app, and the whole point of it is
+# that the data stays on your machine. Copy the folder and you have copied your
+# journal; clone the repo and you have copied only the app.
+
+entries/
+exports/
+backups/
+outbox/
+browser-profile-clean/
+
+app-settings.json
+app-log.json
+calendar-events.json
+custom-choices.json
+goals.json
+goal-log.json
+monthly-reviews.json
+people.json
+task-log.json
+learn-list.json
+shopping-list.json
+spotify-listens.json
+timezone-history.json
+capture-ids.json
+
+hud-settings.json
+hud-log.json
+eyerest-log.json
+eyerest-state.json
+eyerest-gong-log.txt
+eyerest-draft.txt
+eyerest-draft-discarded.txt
+work-mode-settings.json
+work-mode-log.json
+work-session-state.json
+
+# OAuth credentials and tokens for the optional calendar and Spotify
+# connections. These are yours and they are secrets; never commit them.
+google-calendar-auth.json
+google-calendar-config.json
+outlook-calendar-auth.json
+outlook-calendar-config.json
+spotify-auth.json
+spotify-config.json
+
+# Editor and OS leavings.
+.DS_Store
+Thumbs.db
+*.swp

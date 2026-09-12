@@ -1,0 +1,48 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "Why they blend",
+      "x": 0,
+      "y": 0,
+      "w": 920,
+      "h": 1560
+    },
+    {
+      "file": "OptionA.dc.html",
+      "title": "Option A — Semantic families",
+      "x": 980,
+      "y": 0,
+      "w": 920,
+      "h": 1220
+    },
+    {
+      "file": "OptionB.dc.html",
+      "title": "Option B — Contrast first",
+      "x": 1960,
+      "y": 0,
+      "w": 920,
+      "h": 1220
+    },
+    {
+      "file": "OptionC.dc.html",
+      "title": "Option C — Strength carries commitment",
+      "x": 2940,
+      "y": 0,
+      "w": 920,
+      "h": 1220
+    }
+  ],
+  "annotations": [
+    {
+      "id": "how-to-read",
+      "x": 0,
+      "y": -180,
+      "w": 360,
+      "text": "Start at \"Why they blend\" — the ramps there show that hue is invisible below about 20% fill, whatever colours you pick.\nThen compare the three options on the same Tuesday. The test: can you tell train → class → train → work apart without reading the titles?"
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

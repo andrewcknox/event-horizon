@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Event Horizon</title>
+    <!-- Kept on the day-theme panel colour; applyColors() retargets it live so
+         the iOS standalone status bar always matches the topbar it sits on. -->
+    <meta name="theme-color" content="#fffefa" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Event Horizon" />
+    <link rel="icon" href="./assets/journal-icon.ico" sizes="any" />
+    <link rel="icon" href="./assets/journal-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/journal-icon-192.png" />
+    <link rel="manifest" href="./app.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>Event Horizon</h1>
+          <p id="todayLine"></p>
+        </div>
+        <div class="top-controls">
+          <button id="backDayButton" class="icon-button quiet" type="button" aria-label="Previous day" title="Previous day">‹</button>
+          <label>
+            Date
+            <input id="dateInput" type="date" />
+          </label>
+          <button id="todayButton" class="quiet" type="button">Today</button>
+          <button id="forwardDayButton" class="icon-button quiet" type="button" aria-label="Next day" title="Next day">›</button>
+          <div class="theme-toggle" role="group" aria-label="Theme">
+            <button id="sunButton" class="icon-button" type="button" aria-label="Day mode" title="Day mode">☼</button>
+            <button id="moonButton" class="icon-button" type="button" aria-label="Night mode" title="Night mode">☾</button>
+          </div>
+          <button id="trendsViewButton" class="icon-button quiet settings-button" type="button" aria-label="Trends" title="Trends">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 20a1 1 0 0 1-1-1V5a1 1 0 0 1 2 0v13h14a1 1 0 0 1 0 2H4Z" />
+              <rect x="7" y="12" width="3" height="5" rx="1" />
+              <rect x="12" y="8" width="3" height="9" rx="1" />
+              <rect x="17" y="4" width="3" height="13" rx="1" />
+            </svg>
+          </button>
+          <button id="settingsViewButton" class="icon-button quiet settings-button" type="button" aria-label="Settings" title="Settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+              <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.14.38.35.72.65 1 .3.26.69.4 1.1.4H21v4h-.09A1.7 1.7 0 0 0 19.4 15Z" />
+            </svg>
+          </button>
+          <button id="mobileMoreButton" class="icon-button quiet mobile-more-button" type="button" aria-expanded="false" aria-label="Show more panels" title="Show more panels">⋯</button>
+          <div class="color-controls" aria-label="Colors">
+            <label title="Accent color">
+              Accent
+              <input id="accentColorInput" type="color" />
+            </label>
+            <label title="Background color">
+              Backdrop
+              <input id="bgColorInput" type="color" />
+            </label>
+            <label title="Panel color">
+              Panel
+              <input id="panelColorInput" type="color" />
+            </label>
+            <button id="resetColorsButton" class="icon-button quiet" type="button" aria-label="Reset colors" title="Reset colors">↺</button>
+          </div>
+          <div class="search-panel">
+            <label>
+              Search
+              <input id="searchInput" type="search" placeholder="Search days" />
+            </label>
+            <div id="searchResults" class="search-results"></div>
+          </div>
+        </div>
+      </header>
+
+      <aside class="guide-panel">
+        <nav class="side-nav" aria-label="Journal sections">
+          <button id="documentViewButton" type="button" data-mobile-label="Doc" title="Document">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 3.5A1.5 1.5 0 0 1 7.5 2H19v17.5H7.5A1.5 1.5 0 0 0 6 21V3.5Z" />
+              <path d="M11.5 19.5v3l2-1.4 2 1.4v-3" />
+            </svg>
+            <span class="side-nav-label">Document</span>
+          </button>
+          <button id="tasksViewButton" type="button" data-mobile-label="Tasks" title="Tasks">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="10" cy="6.5" r="3" />
+              <path d="M4.5 16.5a5.5 5.5 0 0 1 11 0" />
+              <path d="M2.5 19.5h19" />
+              <path d="M16.5 16.5h5v-5h-5v5Z" />
+            </svg>
+            <span class="side-nav-label">Tasks</span>
+          </button>
+          <button id="calendarViewButton" type="button" data-mobile-label="Cal" title="Calendar">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+              <path d="M8 2.5v5M16 2.5v5M3.5 10.5h17" />
+            </svg>
+            <span class="side-nav-label">Calendar</span>
+          </button>
+          <button id="morningSurveyViewButton" type="button" data-mobile-label="Morning" title="Morning Survey">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" />
+            </svg>
+            <span class="side-nav-label">Morning Survey</span>
+          </button>
+          <button id="nightSurveyViewButton" type="button" data-mobile-label="Night" title="Night Survey">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.8A8.5 8.5 0 0 1 9.2 3.5a8.5 8.5 0 1 0 11.3 11.3Z" />
+            </svg>
+            <span class="side-nav-label">Night Survey</span>
+          </button>
+          <button id="listsNavToggle" type="button" data-mobile-label="Lists" title="Show lists" aria-expanded="false" aria-controls="listsNavGroup">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 6h11M9 12h11M9 18h11" />
+              <path d="M4 6h.01M4 12h.01M4 18h.01" />
+            </svg>
+            <span class="side-nav-label">Lists</span>
+          </button>
+          <div id="listsNavGroup" class="side-nav-group hidden">
+          <button id="mistakesViewButton" type="button" data-mobile-label="Lessons" title="Lessons from experience">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 3.5 21.5 20H2.5L12 3.5Z" />
+              <path d="M12 10v4.5M12 17.5h.01" />
+            </svg>
+            <span class="side-nav-label">Lessons</span>
+          </button>
+          <button id="learnViewButton" type="button" data-mobile-label="Learn" title="Learn about">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 6.5 3.5 4v14L12 20.5 20.5 18V4L12 6.5Z" />
+              <path d="M12 6.5v14" />
+            </svg>
+            <span class="side-nav-label">Learn</span>
+          </button>
+          <button id="shoppingViewButton" type="button" data-mobile-label="Shop" title="Shopping list">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="9.5" cy="20" r="1.5" />
+              <circle cx="17" cy="20" r="1.5" />
+              <path d="M3 3.5h2.5l2.3 11.5h9.9l2.3-8.5H6.2" />
+            </svg>
+            <span class="side-nav-label">Shopping</span>
+          </button>
+          <button id="peopleViewButton" type="button" data-mobile-label="People" title="Rolodex">
+            <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="9" cy="8" r="3" />
+              <path d="M3.5 18a5.5 5.5 0 0 1 11 0" />
+              <path d="M15.5 5.5a3 3 0 0 1 0 5" />
+              <path d="M16.5 13.2a5.5 5.5 0 0 1 4 4.8" />
+            </svg>
+            <span class="side-nav-label">Rolodex</span>
+          </button>
+          </div>
+        </nav>
+        <div class="guide-head is-empty">
+          <h2 id="guideTitle"></h2>
+        </div>
+        <div id="checklist" class="checklist"></div>
+      </aside>
+      <div id="leftResizeHandle" class="resize-handle" role="separator" aria-orientation="vertical" aria-label="Resize left pane"></div>
+
+      <main class="capture-panel">
+        <div class="editor-head">
+          <div>
+            <h2 id="editorTitle">Daily Document</h2>
+            <p id="saveStatus">Ready</p>
+          </div>
+          <div class="editor-actions">
+            <button id="processButton" type="button">Process</button>
+            <button id="saveButton" type="button">Save</button>
+          </div>
+        </div>
+        <div id="workArea" class="work-area">
+          <div id="documentEditor" class="document-editor hidden">
+            <div id="docToolbar" class="doc-toolbar" role="toolbar" aria-label="Document formatting"></div>
+            <div
+              id="journalDoc"
+              class="doc-surface"
+              contenteditable="true"
+              spellcheck="true"
+              role="textbox"
+              aria-multiline="true"
+              aria-label="Daily document"
+            ></div>
+          </div>
+          <div id="tasksView" class="tasks-view hidden"></div>
+          <div id="calendarView" class="calendar-view hidden"></div>
+          <div id="mistakesView" class="mistakes-view hidden"></div>
+          <div id="learnView" class="learn-view hidden"></div>
+          <div id="shoppingView" class="shopping-view hidden"></div>
+          <div id="peopleView" class="people-view hidden"></div>
+          <div id="settingsView" class="settings-view hidden"></div>
+          <div id="trendsView" class="trends-view hidden"></div>
+          <div id="reviewView" class="review-view hidden"></div>
+          <div id="formView" class="form-view hidden"></div>
+        </div>
+        <div id="miniRow" class="mini-row">
+          <div id="miniRowStatus" class="mini-row-status"></div>
+          <div class="mini-row-actions">
+            <details id="exportMenu" class="export-menu">
+              <summary>Export</summary>
+              <div class="export-menu-panel">
+                <button id="copyDocumentButton" type="button" class="quiet">Copy Document</button>
+                <button id="copyWorkbookButton" type="button" class="quiet">Copy Workbook TSV</button>
+                <button id="copySurveyButton" type="button" class="quiet">Copy Survey Draft</button>
+              </div>
+            </details>
+          </div>
+        </div>
+      </main>
+      <div id="rightResizeHandle" class="resize-handle" role="separator" aria-orientation="vertical" aria-label="Resize right pane"></div>
+
+      <section id="outputPanel" class="output-panel">
+        <nav class="tabs" aria-label="Output views">
+          <button id="toggleOutputPanelButton" class="output-toggle" type="button" aria-label="Collapse output panel" title="Collapse output panel">›</button>
+          <button class="active" data-tab="survey" type="button">Survey</button>
+          <button data-tab="hours" type="button">Hours</button>
+          <button data-tab="journal" type="button">Journal</button>
+          <button data-tab="completed" type="button">Completed</button>
+          <button data-tab="mistakes" type="button">Lessons</button>
+          <button data-tab="missing" type="button">Missing</button>
+          <button data-tab="week" type="button">Week</button>
+        </nav>
+        <div id="surveyOutput" class="tab-panel"></div>
+        <div id="hoursOutput" class="tab-panel hidden"></div>
+        <div id="journalOutput" class="tab-panel hidden"></div>
+        <div id="completedOutput" class="tab-panel hidden"></div>
+        <div id="mistakesOutput" class="tab-panel hidden"></div>
+        <div id="missingOutput" class="tab-panel hidden"></div>
+        <div id="weekOutput" class="tab-panel hidden"></div>
+      </section>
+    </div>
+
+    <script>
+      // No service worker, ever. The offline shell it used to cache let the
+      // installed app boot with the server down (Windows restoring the window
+      // after a reboot, before windows/launch-journal.ps1 had server.cjs up),
+      // and a
+      // client that boots that way holds compiled-in defaults and pushes them
+      // over the real files as soon as the server answers. That cost a settings
+      // list two entries and 14 events their assignments on 2026-09-10, and the
+      // hourly-alert setting before that. Without a worker the page simply fails to load
+      // until the server is there, which is the only safe behaviour.
+      // Any worker a browser still has from before is removed here.
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistrations()
+          .then((registrations) => Promise.all(registrations.map((r) => r.unregister())))
+          .catch(() => undefined);
+        if (window.caches) {
+          caches.keys().then((keys) => Promise.all(keys.map((key) => caches.delete(key)))).catch(() => undefined);
+        }
+      }
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>
