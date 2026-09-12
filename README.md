@@ -1,9 +1,26 @@
 # Event Horizon
 
-A local, single-user journaling app. Everything runs on your own machine and is
-stored as plain files in this folder. There is no account, no cloud, and no
-telemetry. It grew out of one person's daily journaling practice and this copy
-is a cleaned-up base for making it your own.
+A local, single-user journaling and scheduling app. 
+
+# The only piece of human-written text here
+
+Over the past few months, this app helped me become the type of person who I have wanted to become for eight years. 
+
+I have aspired to highly detailed levels of life documentation and planning since I was a senior in high school and began walking around with Moleskine notebooks and writing down as many events as I could, with time stamps. I started seriously keeping a planner for the first time a few months later, but I never found a system that could stick. I liked my color-coded planner, but I didn't always have it with me. So I started using Google Calendar to digitize my schedules, but that meant I was writing two things at once. Besides, I never figured out an answer to the question of how to intuitively distinguish deadlines from working periods. I enjoyed writing down my thoughts and feelings, but I would have preferred to search through my journal. I started writing in a google doc and telling myself I'd do a bit every day, but life would get in the way and the journaling ended up being more like hour-long sessions once every few months. 
+
+I've gotten on and fallen off of the scheduling horse for years, using different apps and techniques that always had slight inconveniences that added up. The amount of daily documentation that I aspired to do continued to rise over the years, to the point that I began 2026 with a plan to track every hour into a series of categories to document what I was doing on one spreadsheet, with another to write down in plain English my plans and what what I had in fact done with that hour. In addition to that, I had two separate surveys hosted on Qualtrics that I intended to take every morning and night. On top of that, I figured this way I could get some data to analyze on how things like how much sleep or exercise I get correlate with other factors like my mood and my productivity. To top it off, I wanted to do free-form journaling about my day in a google doc. That's 5 different sheets, docs, and surveys, all on separate links whose pages I'd have to wait for to load each time I opened them. Each had their own annoying little UI quirks too. I was more consistent than one might expect given these high standards, but my execution left a lot to be desired. 
+
+In March, I began my first vibe coding project: an app for generating memorizing chess openings. Watching this project come to life, and feeling this sense of magic that any feature I thought of could come to life, I realized it wouldn't be hard to get all of these things into one place. Suddenly, I didn't have to wait for things to load. I didn't have to write my sleeping hours in my morning survey and then again in my journals. I could make calendar events just like any other app, and click one button to categorize them. 
+
+I've improved this app almost every day -- and used it every day -- for months. It has helped me do so much than I had imagined it would. Now, the second I think of something I should do, I know exactly where to go to schedule it; that's how I can know it will get done. The pomodoro feature has helped me develop a habit of doing five-minute meditations several times per day, free-form journaling, and resting my eyes. 
+
+Now, it's more than just a journal or a calendar. It's my home base for staying on top of life. It's my shopping list, my rolodex, my pomodoro studying timer, and what reminds me every day what my values are. That's why it's called Event Horizon. My day won't escape me, just like an object won't escape a black hole's event horizon. And, of course, it shows what events are on my horizon. Event Horizon has changed my relationship with time almost as much as black hole's gravity would. 
+
+This app is perfect for me. I don't imagine it's perfect for you. I hope that others who are interested will download it and use their own AIs to make it fit their own purposes. Having improved it almost every day for months, I hope that I can save other users from having to dig the same hole twice. 
+
+Enjoy.
+
+-Andy
 
 **New here? Read [docs/FEATURES.md](docs/FEATURES.md)**: a walkthrough of every
 feature with screenshots.
