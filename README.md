@@ -14,13 +14,15 @@ In March, I began my first vibe coding project: an app for generating memorizing
 
 I've improved this app almost every day -- and used it every day -- for months. It has helped me do so much than I had imagined it would. Now, the second I think of something I should do, I know exactly where to go to schedule it; that's how I can know it will get done. The pomodoro feature has helped me develop a habit of doing five-minute meditations several times per day, free-form journaling, and resting my eyes. 
 
-Now, it's more than just a journal or a calendar. It's my home base for staying on top of life. It's my shopping list, my rolodex, my pomodoro studying timer, and what reminds me every day what my values are. That's why it's called Event Horizon. My day won't escape me, just like an object won't escape a black hole's event horizon. And, of course, it shows what events are on my horizon. Event Horizon has changed my relationship with time almost as much as black hole's gravity would. 
+Now, it's more than just a journal or a calendar. It's my home base for staying on top of life. It's my shopping list, my rolodex, my pomodoro studying timer, where I write album reviews, and what reminds me every day what my values are. That's why it's called Event Horizon. My day won't escape me, just like an object won't escape a black hole's event horizon. And, of course, it shows what events are on my horizon. Event Horizon has changed my relationship with time almost as much as black hole's gravity would. 
 
 This app is perfect for me. I don't imagine it's perfect for you. I hope that others who are interested will download it and use their own AIs to make it fit their own purposes. Having improved it almost every day for months, I hope that I can save other users from having to dig the same hole twice. 
 
-Enjoy.
+Enjoy. 
 
 -Andy
+
+P.S.: Thank you, Teddy and Zach, for inspiring with your own life documentation. This project wouldn't be the same without you. 
 
 **New here? Read [docs/FEATURES.md](docs/FEATURES.md)**: a walkthrough of every
 feature with screenshots.
